@@ -52,94 +52,6 @@ end
 
 save('MP_Effluent_Analysis_Data.mat');
 
-T = [0:20,25,30,34,39,44];
-
-% % This is a 4x3 tiledlayout graph with everything centered
-% % CHAOS!!!!!!!!!!!!!!!!!!!!!!!
-% 
-% Effluent_Analysis = figure('DefaultAxesFontSize', 14);
-% 
-% All_Effluent = tiledlayout(4,3);
-% 
-% nexttile(1,[4 2])
-% hold
-% plot(T,A,'r.-','MarkerSize',20,'LineWidth',2)
-% plot(T,B,'b.-','MarkerSize',20,'LineWidth',2)
-% plot(T,C,'g.-','MarkerSize',20,'LineWidth',2)
-% plot(T,D,'k.-','MarkerSize',20,'LineWidth',2)
-% ax = gca;
-% ax.XGrid = 'off';
-% ax.YGrid = 'on';
-% legend('0 Minutes','15 Minutes','30 Minutes','60 Minutes')
-% %xticks([0:20]) xlim([-1 21])
-% ylim([0 30])
-% hold
-% 
-% nexttile(3)
-% hold
-% plot(T,A,'r.-','MarkerSize',20,'LineWidth',2)
-% 
-% %xticks([0:20]) xlim([-1 21])
-% ylim([0 30])
-% ax = gca;
-% ax.XGrid = 'off';
-% ax.YGrid = 'on';
-% set(gca,'xticklabel','','tickdir','out')
-% legend('0 Minutes')
-% hold
-% 
-% nexttile(6)
-% hold
-% plot(T,B,'b.-','MarkerSize',20,'LineWidth',2)
-% 
-% %xticks([0:20]) xlim([-1 21])
-% ylim([0 30])
-% ax = gca;
-% ax.XGrid = 'off';
-% ax.YGrid = 'on';
-% set(gca,'xticklabel','','tickdir','out')
-% legend('15 Minutes')
-% hold
-% 
-% nexttile(9)
-% hold
-% plot(T,C,'g.-','MarkerSize',20,'LineWidth',2)
-% 
-% %xticks([0:20]) xlim([-1 21])
-% ylim([0 30])
-% ax = gca;
-% ax.XGrid = 'off';
-% ax.YGrid = 'on';
-% set(gca,'xticklabel','','tickdir','out')
-% legend('30 Minutes')
-% hold
-% 
-% nexttile(12)
-% hold
-% plot(T,D,'k.-','MarkerSize',20,'LineWidth',2)
-% 
-% %xticks([0:20]) xlim([-1 21])
-% ylim([0 30])
-% ax = gca;
-% ax.XGrid = 'off';
-% ax.YGrid = 'on';
-% set(gca,'tickdir','out')
-% legend('60 Minutes')
-% hold
-% 
-% All_Effluent.TileSpacing = 'tight';
-% All_Effluent.Padding = 'compact';
-% title(All_Effluent,'Effluent Microplastics')
-% xlabel(All_Effluent,'Time (Days)')
-% ylabel(All_Effluent,'Effluent Microplastics (\rho mL^{-1})')
-% 
-% Effluent_Analysis.WindowState = 'maximized';
-% 
-% export_fig(Effluent_Analysis,'Effluent_Analysis.png','-transparent')
-% 
-% Effluent_Analysis.WindowState = 'maximized';
-% export_fig(Effluent_Analysis,'Effluent_Analysis.jpg')
-
 Plastic = [A' B' C' D'];
 Real1 = Plastic(1:6,:);
 Real2 = Plastic(21,:);
@@ -151,14 +63,113 @@ B = Plastic(:,2);
 C = Plastic(:,3);
 D = Plastic(:,4);
 
-figure()
-boxplot(A)
-figure()
-boxplot (B)
-figure()
-boxplot(C)
-figure()
-boxplot(D)
+T = [0,1,2,3,4,5,20,30];
 
-figure()
-boxchart(Plastic)
+% This is a 4x3 tiledlayout graph with everything centered
+% CHAOS!!!!!!!!!!!!!!!!!!!!!!!
+
+Effluent_Analysis = figure('DefaultAxesFontSize', 14);
+
+All_Effluent = tiledlayout(4,3);
+
+nexttile(1,[4 2])
+hold
+plot(T,A,'r.-','MarkerSize',20,'LineWidth',2)
+plot(T,B,'b.-','MarkerSize',20,'LineWidth',2)
+plot(T,C,'g.-','MarkerSize',20,'LineWidth',2)
+plot(T,D,'k.-','MarkerSize',20,'LineWidth',2)
+ax = gca;
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+legend('0 Minutes','15 Minutes','30 Minutes','60 Minutes')
+%xticks([0:20]) xlim([-1 21])
+ylim([0 30])
+hold
+
+nexttile(3)
+hold
+plot(T,A,'r.-','MarkerSize',20,'LineWidth',2)
+
+%xticks([0:20]) xlim([-1 21])
+ylim([0 30])
+ax = gca;
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+set(gca,'xticklabel','','tickdir','out')
+legend('0 Minutes')
+hold
+
+nexttile(6)
+hold
+plot(T,B,'b.-','MarkerSize',20,'LineWidth',2)
+
+%xticks([0:20]) xlim([-1 21])
+ylim([0 30])
+ax = gca;
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+set(gca,'xticklabel','','tickdir','out')
+legend('15 Minutes')
+hold
+
+nexttile(9)
+hold
+plot(T,C,'g.-','MarkerSize',20,'LineWidth',2)
+
+%xticks([0:20]) xlim([-1 21])
+ylim([0 30])
+ax = gca;
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+set(gca,'xticklabel','','tickdir','out')
+legend('30 Minutes')
+hold
+
+nexttile(12)
+hold
+plot(T,D,'k.-','MarkerSize',20,'LineWidth',2)
+
+%xticks([0:20]) xlim([-1 21])
+ylim([0 30])
+ax = gca;
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+set(gca,'tickdir','out')
+legend('60 Minutes')
+hold
+
+All_Effluent.TileSpacing = 'tight';
+All_Effluent.Padding = 'compact';
+title(All_Effluent,'Effluent Microplastics')
+xlabel(All_Effluent,'Time (Days)')
+ylabel(All_Effluent,'Effluent Microplastics (\rho mL^{-1})')
+
+Effluent_Analysis.WindowState = 'maximized';
+
+export_fig(Effluent_Analysis,'Effluent_Analysis.png','-transparent')
+
+Effluent_Analysis.WindowState = 'maximized';
+export_fig(Effluent_Analysis,'Effluent_Analysis.jpg')
+
+% Plastic = [A' B' C' D'];
+% Real1 = Plastic(1:6,:);
+% Real2 = Plastic(21,:);
+% Real3 = Plastic(23,:);
+% Plastic = [Real1;Real2;Real3];
+% 
+% A = Plastic(:,1);
+% B = Plastic(:,2);
+% C = Plastic(:,3);
+% D = Plastic(:,4);
+
+% figure()
+% boxplot(A)
+% figure()
+% boxplot (B)
+% figure()
+% boxplot(C)
+% figure()
+% boxplot(D)
+% 
+% figure()
+% boxchart(Plastic)
